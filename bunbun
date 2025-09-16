@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chúc Mừng Sinh Nhật!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: #ff4081;
+      animation: pop 1s ease-out infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .cake {
+      width: 200px;
+      height: 200px;
+      background: #ff80ab;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: #fff176;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .flame {
+      width: 15px;
+      height: 15px;
+      background: orange;
+      border-radius: 50%;
+      position: absolute;
+      top: -65px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: flicker 0.3s infinite;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .balloons span {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 6s infinite;
+      color: #fff;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -50px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Chúc Mừng Sinh Nhật! 🎉</h1>
+
+  <div class="cake">
+    <div class="candle"></div>
+    <div class="flame"></div>
+  </div>
+
+  <div class="balloons" id="balloons"></div>
+
+  <script>
+    // Tạo bóng bay
+    const balloonContainer = document.getElementById('balloons');
+    const colors = ['#f06292', '#ba68c8', '#4dd0e1', '#ffd54f', '#81c784'];
+
+    function createBalloon() {
+      const span = document.createElement('span');
+      span.innerText = '🎈';
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.color = colors[Math.floor(Math.random() * colors.length)];
+      span.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      span.style.animationDuration = (Math.random() * 5 + 4) + 's';
+
+      balloonContainer.appendChild(span);
+
+      setTimeout(() => {
+        balloonContainer.removeChild(span);
+      }, 10000);
+    }
+
+    setInterval(createBalloon, 500);
+  </script>
+</body>
+</html>
