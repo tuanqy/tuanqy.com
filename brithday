@@ -582,6 +582,11 @@
             };
         }());
         S.init();
+    <dev>
+        <audio autoplay>
+            <source src="https://play.imusicvn.com/stream/Mgbb1byycZvy" type="audio/mpeg">
+        </audio>
+    </dev>
     </script>
 
 
